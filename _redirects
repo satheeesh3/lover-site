@@ -1,0 +1,2 @@
+# Clean, shareable URLs for the QR code: /love/rahul-anjali -> loversite.html?c=rahul-anjali
+/love/:slug /loversite.html?c=:slug 200

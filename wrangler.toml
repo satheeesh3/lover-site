@@ -1,0 +1,7 @@
+name = "loversite"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "."
+
+# For local dev only (`wrangler pages dev . --env-file .env`).
+# In production, set these as Cloudflare Pages environment variables (plain)
+# and secrets (sensitive) in the dashboard — see README.md.

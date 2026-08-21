@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Loversite Page — Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/admin.css" />
+</head>
+<body class="admin-shell">
+  <div class="admin-topbar">
+    <a class="admin-topbar__brand" href="dashboard.html">💕 Loversite Admin</a>
+    <div class="admin-topbar__nav">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="create.html">+ New Page</a>
+      <button class="btn btn-outline" id="logout-btn" style="padding: 8px 16px;">Log Out</button>
+    </div>
+  </div>
+
+  <main class="admin-main">
+    <div class="section-title" style="text-align:left; margin-bottom:20px;">
+      <h2 id="page-heading">Create Loversite Page</h2>
+      <p id="customer-summary">Loading customer...</p>
+    </div>
+
+    <div class="two-col">
+      <form id="page-form" class="form-card" style="max-width: none;" novalidate>
+        <div class="form-group">
+          <label for="slug">URL slug</label>
+          <input type="text" id="slug" required pattern="[a-z0-9-]+" />
+          <div class="form-hint">Page will be at /love/&lt;slug&gt; — lowercase letters, numbers, hyphens only.</div>
+        </div>
+        <div class="form-group">
+          <label for="couple_name">Couple name(s)</label>
+          <input type="text" id="couple_name" required />
+        </div>
+        <div class="form-group">
+          <label for="start_date">Relationship start date</label>
+          <input type="date" id="start_date" />
+          <div class="form-hint">Used to show the "together for..." counter.</div>
+        </div>
+        <div class="form-group">
+          <label for="photo_url">Photo URL</label>
+          <input type="url" id="photo_url" />
+          <div class="form-hint">Pre-filled from their order upload. Replace if you want to use a different image.</div>
+        </div>
+        <div class="form-group">
+          <label for="message">Love message</label>
+          <textarea id="message" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="theme">Theme</label>
+          <select id="theme">
+            <option value="romantic">Romantic (red/pink/gold)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" id="save-btn">Save &amp; Generate QR</button>
+        <div class="form-status" id="form-status"></div>
+      </form>
+
+      <div class="qr-preview">
+        <h3>QR Code</h3>
+        <div id="qr-canvas-holder"></div>
+        <p id="qr-link" style="word-break: break-all; color: var(--color-muted); font-size: 0.85rem;"></p>
+        <button class="btn btn-outline" id="download-qr-btn" style="display:none;">Download QR (PNG)</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/supabaseClient.js"></script>
+  <script src="../assets/js/admin-auth.js"></script>
+  <script src="../assets/js/admin-create.js"></script>
+</body>
+</html>

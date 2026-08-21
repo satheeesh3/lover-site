@@ -1,0 +1,13 @@
+# Secrets — never commit real credentials
+.env
+.env.local
+
+# Dependencies (Cloudflare Functions / cron-worker, if installed locally)
+node_modules/
+
+# Wrangler local state
+.wrangler/
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
